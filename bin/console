@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'bungie_sdk'
+require 'pry'
+require 'dotenv/load'
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+
+def reload!
+  Dir['lib/**/*.rb'].each {|file| load file }
+end
+
+Pry.start

@@ -1,0 +1,147 @@
+# ---------------------------------------------------------------------------------
+# RuboCop config for syxtax enforcement
+# ---------------------------------------------------------------------------------
+require: rubocop-sorbet
+
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'Rakefile'
+  TargetRubyVersion: 2.7
+
+
+# Styling
+# ---------------------------------------------------------------------------------
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+
+Style/ClassVars:
+  Enabled: false
+
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+Layout/ExtraSpacing:
+  Enabled: false
+  AllowForAlignment: true
+  ForceEqualSignAlignment: true
+
+Style/Documentation:
+  Enabled: false
+
+Layout/EmptyLinesAroundAccessModifier:
+  EnforcedStyle: only_before
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/Semicolon:
+  Enabled: false
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  SpaceBeforeBlockParameters: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+
+Style/SingleLineMethods:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Naming/PredicateName:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/ColonMethodCall:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+# Linter
+# ---------------------------------------------------------------------------------
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+
+Lint/UselessMethodDefinition:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Lint/RescueException:
+  Enabled: false
+
+# Metrics
+# ---------------------------------------------------------------------------------
+Layout/LineLength:
+  Max: 118
+
+Metrics:
+  Enabled: false
+
+Security/MarshalLoad:
+  Enabled: false
