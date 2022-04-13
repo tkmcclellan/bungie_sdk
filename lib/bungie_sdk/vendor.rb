@@ -3,6 +3,10 @@
 module BungieSdk::Destiny2
   # Represents vendors in Destiny 2
   class Vendor < ApiAgent
+    # Signifies if the definition request has failed
+    sig { returns T::Boolean }
+    attr_reader :failed_definition
+
     # Vendor id
     sig { returns Integer }
     def id
@@ -30,12 +34,16 @@ module BungieSdk::Destiny2
         data['definition'] = response.body
       end
 
+      request.on_failure {|_| @failed_definition = true }
+
       request
     end
 
     # Vendor definition
     sig { returns Hash }
     def definition
+      return {} if @failed_definition
+
       if data['definition'].nil?
         definition_request.run
       end
@@ -46,19 +54,7 @@ module BungieSdk::Destiny2
     # Vendor items
     sig { returns T::Array[Item] }
     def items
-      return @items unless @items.nil?
-
-      hydra        = Typhoeus::Hydra.new
-      vendor_items = sales.map do |sale|
-        item = Item.new(sale)
-        hydra.queue item.definition_request
-
-        item
-      end
-
-      hydra.run
-
-      @items = vendor_items.reject {|item| item.data['definition'].nil? }
+      sales.map {|sale| Item.new(sale) }
     end
   end
 end
