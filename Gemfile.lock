@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bungie_sdk (0.1.1)
+    bungie_sdk (0.1.2)
       launchy (~> 2.5)
       oauth2 (~> 1.2)
       sorbet-runtime (~> 0.5)
